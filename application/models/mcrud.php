@@ -47,4 +47,9 @@ class Mcrud extends CI_Model {
         $this->db->where('id', $id);
         $this->db->update('crud', $data);
     }
+
+    function del($a) {
+        $this->db->delete('crud', array('id' => $a));
+        return;
+    }
 }

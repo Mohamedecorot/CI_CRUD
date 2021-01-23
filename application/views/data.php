@@ -28,8 +28,9 @@
                     <td><?php echo $row->email ?></td>
                     <td><?php echo $row->phone ?></td>
                     <td><?php echo $row->address ?></td>
-                    <td>
-                        <a href="<?php echo site_url('crud/choose/'.$row->id) ?>" class="btn btn-warning">Edit</a>
+                    <td class="text-center">
+                        <a href="<?php echo site_url('crud/choose/'.$row->id) ?>" class="btn btn-warning">Editer</a>
+                        <a href="<?php echo site_url('crud/del/'.$row->id) ?>" class="btn btn-danger" onclick="return confirm('êtes-vous sûr ?')">Supprimer</a>
                     </td>
                 </tr>
                 <?php

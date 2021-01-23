@@ -56,4 +56,10 @@ class Crud extends CI_Controller {
 			redirect('crud/choose/'.$id, 'refresh');
 		}
 	}
+
+	public function del() {
+		$u = $this->uri->segment(3);
+		$this->mcrud->del($u);
+		redirect('crud', 'refresh');
+	}
 }
