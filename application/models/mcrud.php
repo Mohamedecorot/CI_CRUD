@@ -12,5 +12,19 @@ class Mcrud extends CI_Model {
             }
             return $hasil;
         }
-	}
+    }
+
+    function add(){
+        $nm = $this->input->post('nm');
+        $em = $this->input->post('em');
+        $hp = $this->input->post('hp');
+        $al = $this->input->post('al');
+        $data = array(
+            'name' => $nm,
+            'email' => $em,
+            'phone' => $hp,
+            'address' => $al
+        );
+        $this->db->insert('crud', $data);
+    }
 }

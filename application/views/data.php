@@ -1,4 +1,6 @@
-
+    <p>
+        <a href="<?php echo site_url('crud/add') ?>" class="btn btn-primary">Ajouter une nouvelle donnée</a>
+    </p>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
