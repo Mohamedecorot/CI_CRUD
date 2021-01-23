@@ -5,6 +5,10 @@ class Crud extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('data');
+		$data['title'] = "View CRUD";
+		$data['mydata'] = $this->mcrud->view();
+		$this->load->view('header', $data);
+		$this->load->view('data', $data);
+		$this->load->view('footer');
 	}
 }
