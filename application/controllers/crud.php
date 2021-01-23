@@ -28,4 +28,32 @@ class Crud extends CI_Controller {
 			redirect('crud/add', 'refresh');
 		}
 	}
+
+	public function choose() {
+		$kd = $this->uri->segment(3);
+		if($kd == null){
+			redirect('crud');
+		}
+		$dt = $this->mcrud->edit($kd);
+		$data['nm'] = $dt->name;
+		$data['em'] = $dt->email;
+		$data['hp'] = $dt->phone;
+		$data['al'] = $dt->address;
+		$data['id'] = $kd;
+		$data['title'] = "Edit CRUD";
+		$this->load->view('header', $data);
+		$this->load->view('edit', $data);
+		$this->load->view('footer');
+	}
+
+	public function update() {
+		if($this->input->post('edit')) {
+			$id = $this->input->post('id');
+			$this->mcrud->update($id);
+			redirect('crud', 'refresh');
+		} else {
+			$id = $this->input->post('id');
+			redirect('crud/choose/'.$id, 'refresh');
+		}
+	}
 }

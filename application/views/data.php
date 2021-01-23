@@ -9,6 +9,7 @@
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Address</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                     <td><?php echo $row->email ?></td>
                     <td><?php echo $row->phone ?></td>
                     <td><?php echo $row->address ?></td>
+                    <td>
+                        <a href="<?php echo site_url('crud/choose/'.$row->id) ?>" class="btn btn-warning">Edit</a>
+                    </td>
                 </tr>
                 <?php
                     }

@@ -27,4 +27,24 @@ class Mcrud extends CI_Model {
         );
         $this->db->insert('crud', $data);
     }
+
+    function edit($a){
+        $d = $this->db->get_where('crud', array('id'=>$a))->row();
+        return $d;
+    }
+
+    function update($id){
+        $nm = $this->input->post('nm');
+        $em = $this->input->post('em');
+        $hp = $this->input->post('hp');
+        $al = $this->input->post('al');
+        $data = array(
+            'name' => $nm,
+            'email' => $em,
+            'phone' => $hp,
+            'address' => $al
+        );
+        $this->db->where('id', $id);
+        $this->db->update('crud', $data);
+    }
 }
